@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Vibe Grid: temukan anime sesuai mood-mu di FlipPlay, data diambil dari Kitsu API.">
+  <title>The Vibe Grid | FlipPlay</title>
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body class="bg-paper-50 text-ink-900 font-sans antialiased">
+
+  <header class="bg-ink-900 text-paper-50">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Navigasi utama">
+      <a href="./index.html" class="font-display text-2xl font-bold">Flip<span class="text-play-400">Play</span></a>
+      <a href="./index.html" class="text-sm hover:text-play-400 focus-visible:outline-2 focus-visible:outline-play-400">&larr; Kembali ke Beranda</a>
+    </nav>
+  </header>
+
+  <main class="px-6 py-12">
+    <div class="mx-auto max-w-6xl">
+      <h1 class="text-center font-display text-3xl font-bold md:text-4xl">The Vibe Grid</h1>
+      <p class="mx-auto mt-3 max-w-xl text-center leading-relaxed text-ink-700">
+        Cari anime lewat judul, atau pilih Aura sesuai mood-mu. Data diambil langsung dari Kitsu API.
+      </p>
+
+      <!-- Kontrol: Unified Search + Aura-Based Discovery (tampil setelah data berhasil dimuat) -->
+      <section id="controls" class="mx-auto mt-8 max-w-2xl" aria-label="Pencarian dan filter Aura" hidden>
+        <label for="search-input" class="sr-only">Cari anime berdasarkan judul</label>
+        <input id="search-input" type="search" placeholder="Cari judul anime..." autocomplete="off"
+          class="w-full rounded-full border-2 border-paper-200 bg-white px-6 py-3 text-ink-900 focus-visible:border-flip-500 focus-visible:outline-none">
+
+        <div id="aura-buttons" class="mt-4 flex flex-wrap justify-center gap-2" role="group" aria-label="Pilih Aura"></div>
+
+        <p id="result-count" class="mt-4 text-center text-sm text-ink-700" role="status"></p>
+      </section>
+
+      <!-- State: loading & error -->
+      <p id="loading-message" class="mt-10 text-center font-bold text-ink-700" role="status" hidden></p>
+
+      <div id="error-box" class="mx-auto mt-10 max-w-md rounded-2xl bg-white p-6 text-center shadow" hidden>
+        <p id="error-message" class="font-bold text-red-600" role="alert"></p>
+        <button id="retry-button" type="button" class="mt-4 rounded-full bg-flip-500 px-6 py-3 font-bold text-white hover:bg-flip-600">Coba lagi</button>
+      </div>
+
+      <!-- Hasil: card di-render oleh JavaScript -->
+      <div id="anime-list" class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"></div>
+
+      <!-- State: tidak ada hasil -->
+      <p id="empty-message" class="mt-10 text-center font-bold text-ink-700" hidden>
+        Tidak ada anime yang cocok. Coba kata kunci atau Aura lain.
+      </p>
+    </div>
+  </main>
+
+  <footer class="bg-ink-900 px-6 py-8 text-center text-paper-200">
+    <p class="font-display text-xl font-bold text-paper-50">Flip<span class="text-play-400">Play</span></p>
+    <p class="mt-4 text-sm">&copy; 2026 FlipPlay. Hak cipta dilindungi.</p>
+  </footer>
+
+  <script src="./katalog.js" defer></script>
+</body>
+</html>

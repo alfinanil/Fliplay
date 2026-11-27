@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FlipPlay: nonton anime & drama, baca manga & light novel dalam satu aplikasi web.">
+  <title>FlipPlay | Tonton dan Baca di Satu Tempat</title>
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body class="bg-paper-50 text-ink-900 font-sans antialiased">
+
+  <!-- NAVBAR -->
+  <header class="bg-ink-900 text-paper-50">
+    <nav class="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between" aria-label="Navigasi utama">
+      <div class="flex items-center justify-between">
+        <a href="#beranda" class="font-display text-2xl font-bold">Flip<span class="text-play-400">Play</span></a>
+        <!-- Tombol menu: hanya tampil di layar kecil -->
+        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-nav"
+          class="rounded-lg border border-paper-200 px-4 py-2 text-sm font-bold hover:bg-ink-800 sm:hidden">Menu</button>
+      </div>
+      <ul id="menu-nav" class="flex flex-col items-center gap-3 text-sm max-sm:hidden sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6">
+        <li><a href="#beranda" class="hover:text-play-400 focus-visible:outline-2 focus-visible:outline-play-400">Beranda</a></li>
+        <li><a href="#konten" class="hover:text-play-400 focus-visible:outline-2 focus-visible:outline-play-400">Konten</a></li>
+        <li><a href="./katalog.html" class="hover:text-play-400 focus-visible:outline-2 focus-visible:outline-play-400">Katalog</a></li>
+        <li><a href="#keunggulan" class="hover:text-play-400 focus-visible:outline-2 focus-visible:outline-play-400">Keunggulan</a></li>
+        <li><a href="#kontak" class="rounded-full bg-flip-500 px-4 py-2 font-bold text-white hover:bg-flip-600">Hubungi Kami</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="beranda" class="bg-ink-900 px-6 pb-20 pt-12 text-paper-50 md:pb-28 md:pt-20" aria-labelledby="judul-hero">
+      <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
+        <div class="text-center md:text-left">
+          <p class="mb-3 text-play-400">Streaming dan baca, satu aplikasi</p>
+          <h1 id="judul-hero" class="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            Tonton episodenya. Lanjut baca bab berikutnya.
+          </h1>
+          <p class="mx-auto mt-5 max-w-md text-lg leading-relaxed text-paper-200 md:mx-0">
+            FlipPlay menyatukan anime, drama, manga, dan light novel supaya ceritamu tidak terputus saat pindah aplikasi.
+          </p>
+          <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row md:justify-start">
+            <a href="#konten" class="rounded-full bg-flip-500 px-6 py-3 text-center font-bold text-white hover:bg-flip-600">Jelajahi konten</a>
+            <a href="#kontak" class="rounded-full border border-paper-200 px-6 py-3 text-center font-bold hover:bg-ink-800">Minta info rilis</a>
+          </div>
+        </div>
+
+        <!-- Visual hero: layar video (kiri) dan halaman buku (kanan) -->
+        <figure class="mx-auto flex w-full max-w-md items-stretch gap-3" aria-label="Ilustrasi layar video dan halaman buku">
+          <div class="flex flex-1 flex-col justify-between rounded-2xl bg-ink-700 p-4">
+            <div class="flex aspect-video items-center justify-center rounded-lg bg-flip-500 text-4xl" aria-hidden="true">▶</div>
+            <p class="mt-3 text-sm text-paper-200">Episode 12</p>
+          </div>
+          <div class="flex flex-1 flex-col justify-between rounded-2xl bg-paper-50 p-4 text-ink-900">
+            <div class="space-y-2" aria-hidden="true">
+              <div class="h-2 rounded bg-paper-200"></div>
+              <div class="h-2 w-5/6 rounded bg-paper-200"></div>
+              <div class="h-2 w-4/6 rounded bg-paper-200"></div>
+              <div class="h-2 w-5/6 rounded bg-paper-200"></div>
+            </div>
+            <p class="mt-3 text-sm">Bab 12</p>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTENT SECTION: jenis konten -->
+    <section id="konten" class="px-6 py-16" aria-labelledby="judul-konten">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="judul-konten" class="text-center font-display text-3xl font-bold md:text-4xl">Empat dunia cerita, satu akun</h2>
+        <p class="mx-auto mt-3 max-w-xl text-center leading-relaxed text-ink-700">
+          Pilih cara menikmatinya: ditonton atau dibaca.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="overflow-hidden rounded-2xl bg-white shadow">
+            <img src="./images/anime.svg" alt="Poster ilustrasi anime" class="aspect-video w-full object-cover">
+            <div class="p-6">
+              <h3 class="text-xl font-bold">Anime</h3>
+              <p class="mt-2 leading-relaxed text-ink-700">Seri terbaru dan klasik dengan subtitle Indonesia, rilis tak lama setelah tayang.</p>
+            </div>
+          </article>
+          <article class="overflow-hidden rounded-2xl bg-white shadow">
+            <img src="./images/drama.svg" alt="Ilustrasi layar televisi drama" class="aspect-video w-full object-cover">
+            <div class="p-6">
+              <h3 class="text-xl font-bold">Drama</h3>
+              <p class="mt-2 leading-relaxed text-ink-700">Drama Asia dari berbagai genre, tersedia lengkap dari episode pertama.</p>
+            </div>
+          </article>
+          <article class="overflow-hidden rounded-2xl bg-white shadow">
+            <img src="./images/manga.svg" alt="Ilustrasi panel halaman manga" class="aspect-video w-full object-cover">
+            <div class="p-6">
+              <h3 class="text-xl font-bold">Manga</h3>
+              <p class="mt-2 leading-relaxed text-ink-700">Baca per bab dengan tampilan vertikal yang nyaman di layar ponsel.</p>
+            </div>
+          </article>
+          <article class="overflow-hidden rounded-2xl bg-white shadow">
+            <img src="./images/light-novel.svg" alt="Ilustrasi buku light novel terbuka" class="aspect-video w-full object-cover">
+            <div class="p-6">
+              <h3 class="text-xl font-bold">Light Novel</h3>
+              <p class="mt-2 leading-relaxed text-ink-700">Novel ringan dengan ukuran huruf dan mode baca yang bisa kamu atur.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT SECTION: keunggulan -->
+    <section id="keunggulan" class="bg-ink-800 px-6 py-16 text-paper-50" aria-labelledby="judul-keunggulan">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="judul-keunggulan" class="font-display text-3xl font-bold md:text-4xl">Kenapa FlipPlay</h2>
+        <div class="mt-8 grid gap-8 md:grid-cols-3">
+          <article>
+            <h3 class="text-xl font-bold text-play-400">Satu aplikasi</h3>
+            <p class="mt-2 max-w-sm leading-relaxed text-paper-200">Tidak perlu membuka dua layanan untuk satu judul yang sama.</p>
+          </article>
+          <article>
+            <h3 class="text-xl font-bold text-play-400">Lanjut dari terakhir</h3>
+            <p class="mt-2 max-w-sm leading-relaxed text-paper-200">Posisi tonton dan baca tersimpan, jadi kamu bisa melanjutkan di perangkat mana pun.</p>
+          </article>
+          <article>
+            <h3 class="text-xl font-bold text-play-400">Nyaman di semua layar</h3>
+            <p class="mt-2 max-w-sm leading-relaxed text-paper-200">Tampilan menyesuaikan desktop, tablet, dan ponsel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="kontak" class="px-6 py-16" aria-labelledby="judul-kontak">
+      <div class="mx-auto max-w-xl">
+        <h2 id="judul-kontak" class="text-center font-display text-3xl font-bold md:text-4xl">Hubungi kami</h2>
+        <p class="mt-3 text-center leading-relaxed text-ink-700">Tinggalkan pesan, tim FlipPlay akan membalas lewat email.</p>
+
+        <form id="contact-form" action="#" method="post" novalidate class="mt-8 rounded-2xl bg-white p-6 shadow sm:p-8">
+          <label for="nama" class="block font-bold">Nama</label>
+          <input id="nama" name="nama" type="text" placeholder="Nama lengkap" required
+            class="mb-4 mt-1 w-full rounded-lg border border-ink-700/30 p-3 focus:outline-2 focus:outline-flip-500">
+          <p id="error-nama" class="-mt-3 mb-4 text-sm text-red-600" role="alert" hidden></p>
+
+          <label for="email" class="block font-bold">Email</label>
+          <input id="email" name="email" type="email" placeholder="nama@email.com" required
+            class="mb-4 mt-1 w-full rounded-lg border border-ink-700/30 p-3 focus:outline-2 focus:outline-flip-500">
+          <p id="error-email" class="-mt-3 mb-4 text-sm text-red-600" role="alert" hidden></p>
+
+          <label for="minat" class="block font-bold">Konten favorit</label>
+          <select id="minat" name="minat"
+            class="mb-4 mt-1 w-full rounded-lg border border-ink-700/30 p-3 focus:outline-2 focus:outline-flip-500">
+            <option>Anime</option>
+            <option>Drama</option>
+            <option>Manga</option>
+            <option>Light Novel</option>
+          </select>
+
+          <label for="pesan" class="block font-bold">Pesan</label>
+          <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesanmu"
+            class="mb-6 mt-1 w-full rounded-lg border border-ink-700/30 p-3 focus:outline-2 focus:outline-flip-500"></textarea>
+          <p id="error-pesan" class="-mt-4 mb-4 text-sm text-red-600" role="alert" hidden></p>
+
+          <button type="submit" class="w-full rounded-full bg-flip-500 px-6 py-3 font-bold text-white hover:bg-flip-600">Kirim pesan</button>
+          <p id="form-status" class="mt-4 text-center font-bold text-flip-600" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink-900 px-6 py-8 text-center text-paper-200">
+    <p class="font-display text-xl font-bold text-paper-50">Flip<span class="text-play-400">Play</span></p>
+    <p class="mt-2 text-sm">Anime, drama, manga, dan light novel dalam satu aplikasi web.</p>
+    <p class="mt-4 text-sm">&copy; 2026 FlipPlay. Hak cipta dilindungi.</p>
+  </footer>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>

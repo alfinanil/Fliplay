@@ -1,0 +1,625 @@
+{
+  "info": {
+    "name": "FlipPlay API - Modul 4",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Media - Happy path",
+      "item": [
+        {
+          "name": "GET semua media (200)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/media",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "media"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET cari judul (200)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/media?judul=a&jenis=film",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "media"
+              ],
+              "query": [
+                {
+                  "key": "judul",
+                  "value": "a"
+                },
+                {
+                  "key": "jenis",
+                  "value": "film"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "POST tambah media (201)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/media",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "media"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"judul\": \"Laskar Pelangi\",\n  \"jenis\": \"film\",\n  \"genre\": \"Drama\",\n  \"tahun_rilis\": 2008,\n  \"deskripsi\": \"Kisah anak-anak Belitung\"\n}"
+            }
+          }
+        },
+        {
+          "name": "GET detail media + pengguna (200)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/media/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "media",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "PATCH ubah genre (200)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/media/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "media",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"genre\": \"Petualangan\"\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE media (200)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/media/13",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "media",
+                "13"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Media - Failure path",
+      "item": [
+        {
+          "name": "POST judul kosong (422)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/media",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "media"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"judul\": \"\",\n  \"jenis\": \"film\",\n  \"genre\": \"Drama\"\n}"
+            }
+          }
+        },
+        {
+          "name": "POST judul duplikat (422)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/media",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "media"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"judul\": \"Laskar Pelangi\",\n  \"jenis\": \"film\",\n  \"genre\": \"Drama\"\n}"
+            }
+          }
+        },
+        {
+          "name": "POST jenis tidak valid (422)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/media",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "media"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"judul\": \"Contoh X\",\n  \"jenis\": \"buku\",\n  \"genre\": \"Drama\"\n}"
+            }
+          }
+        },
+        {
+          "name": "GET ID tidak ada (404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/media/9999",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "media",
+                "9999"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Pengguna",
+      "item": [
+        {
+          "name": "GET semua pengguna (200)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna"
+              ]
+            }
+          }
+        },
+        {
+          "name": "POST tambah pengguna (201)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama\": \"Senjana\",\n  \"email\": \"senjana@example.com\"\n}"
+            }
+          }
+        },
+        {
+          "name": "POST email duplikat (422)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama\": \"Senjana 2\",\n  \"email\": \"senjana@example.com\"\n}"
+            }
+          }
+        },
+        {
+          "name": "PATCH ubah nama (200)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama\": \"Nama Baru\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Custom action - Koleksi",
+      "item": [
+        {
+          "name": "POST tambah media ke koleksi (201)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna/1/koleksi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "1",
+                "koleksi"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"media_id\": 12\n}"
+            }
+          }
+        },
+        {
+          "name": "POST media yang sama lagi (409)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna/1/koleksi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "1",
+                "koleksi"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"media_id\": 12\n}"
+            }
+          }
+        },
+        {
+          "name": "POST media_id tidak ada (422)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna/1/koleksi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "1",
+                "koleksi"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"media_id\": 9999\n}"
+            }
+          }
+        },
+        {
+          "name": "POST media_id kosong (422)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna/1/koleksi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "1",
+                "koleksi"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            }
+          }
+        },
+        {
+          "name": "GET koleksi pengguna (200)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna/1/koleksi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "1",
+                "koleksi"
+              ]
+            }
+          }
+        },
+        {
+          "name": "DELETE media dari koleksi (200)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna/1/koleksi/12",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "1",
+                "koleksi",
+                "12"
+              ]
+            }
+          }
+        },
+        {
+          "name": "DELETE lagi, sudah tidak ada (404)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna/1/koleksi/12",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "1",
+                "koleksi",
+                "12"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET koleksi pengguna ID tidak ada (404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pengguna/9999/koleksi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pengguna",
+                "9999",
+                "koleksi"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

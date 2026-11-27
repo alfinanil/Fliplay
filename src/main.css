@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-900: #1b1530;
+  --color-ink-800: #2a2147;
+  --color-ink-700: #3d3163;
+  --color-paper-50: #fbf8f1;
+  --color-paper-200: #efe6d2;
+  --color-flip-500: #ff5d73;
+  --color-flip-600: #e8445b;
+  --color-play-400: #ffc857;
+  --font-sans: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+}
